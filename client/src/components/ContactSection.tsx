@@ -1,0 +1,256 @@
+import { useState } from "react";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { useMutation } from "@tanstack/react-query";
+import { ContactFormData } from "@shared/schema";
+
+export default function ContactSection() {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState<ContactFormData>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    company: "",
+    service: "",
+    message: ""
+  });
+
+  const contactMutation = useMutation({
+    mutationFn: async (data: ContactFormData) => {
+      const res = await apiRequest("POST", "/api/contact", data);
+      return res.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for contacting us. We'll get back to you soon.",
+        variant: "default",
+      });
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        company: "",
+        service: "",
+        message: ""
+      });
+    },
+    onError: (error) => {
+      toast({
+        title: "Error",
+        description: "There was a problem sending your message. Please try again.",
+        variant: "destructive",
+      });
+      console.error("Contact form error:", error);
+    }
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSelectChange = (value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      service: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    contactMutation.mutate(formData);
+  };
+
+  return (
+    <section id="contact" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="section-title">
+            Contact <span className="text-primary">Us</span>
+          </h2>
+          <p className="section-subtitle">
+            Have questions or ready to discuss your IT needs? Get in touch with our team today.
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div>
+            <form onSubmit={handleSubmit} className="bg-gray-50 rounded-xl p-8 shadow-md">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <Label htmlFor="firstName">First Name</Label>
+                  <Input
+                    id="firstName"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="lastName">Last Name</Label>
+                  <Input
+                    id="lastName"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+              </div>
+              
+              <div className="mt-6 space-y-2">
+                <Label htmlFor="email">Email Address</Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              
+              <div className="mt-6 space-y-2">
+                <Label htmlFor="company">Company</Label>
+                <Input
+                  id="company"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleInputChange}
+                />
+              </div>
+              
+              <div className="mt-6 space-y-2">
+                <Label htmlFor="service">Service of Interest</Label>
+                <Select
+                  value={formData.service}
+                  onValueChange={handleSelectChange}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a service" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="none">Select a service</SelectItem>
+                    <SelectItem value="software_development">Software Development</SelectItem>
+                    <SelectItem value="cloud_solutions">Cloud Solutions</SelectItem>
+                    <SelectItem value="cybersecurity">Cybersecurity</SelectItem>
+                    <SelectItem value="it_consulting">IT Consulting</SelectItem>
+                    <SelectItem value="it_support">IT Support</SelectItem>
+                    <SelectItem value="data_analytics">Data Analytics</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <div className="mt-6 space-y-2">
+                <Label htmlFor="message">Message</Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              
+              <div className="mt-8">
+                <Button 
+                  type="submit" 
+                  className="w-full"
+                  disabled={contactMutation.isPending}
+                >
+                  {contactMutation.isPending ? "Sending..." : "Send Message"}
+                </Button>
+              </div>
+            </form>
+          </div>
+          
+          <div>
+            <div className="bg-gray-50 rounded-xl p-8 shadow-md mb-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Contact Information</h3>
+              
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-10 w-10 rounded-md bg-blue-100 text-primary">
+                      <i className="fas fa-map-marker-alt"></i>
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="text-base font-medium text-gray-900">Address</h4>
+                    <p className="mt-1 text-gray-600">123 Tech Avenue, Suite 500<br/>San Francisco, CA 94103</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-10 w-10 rounded-md bg-blue-100 text-primary">
+                      <i className="fas fa-phone-alt"></i>
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="text-base font-medium text-gray-900">Phone</h4>
+                    <p className="mt-1 text-gray-600">(800) 123-4567</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-10 w-10 rounded-md bg-blue-100 text-primary">
+                      <i className="fas fa-envelope"></i>
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="text-base font-medium text-gray-900">Email</h4>
+                    <p className="mt-1 text-gray-600">info@techcoresolutions.com</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-10 w-10 rounded-md bg-blue-100 text-primary">
+                      <i className="fas fa-clock"></i>
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="text-base font-medium text-gray-900">Business Hours</h4>
+                    <p className="mt-1 text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM<br/>Saturday: 10:00 AM - 2:00 PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gray-50 rounded-xl p-8 shadow-md">
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Connect With Us</h3>
+              <div className="flex space-x-4">
+                <a href="#" className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-primary hover:bg-blue-200 transition-colors">
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-primary hover:bg-blue-200 transition-colors">
+                  <i className="fab fa-twitter"></i>
+                </a>
+                <a href="#" className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-primary hover:bg-blue-200 transition-colors">
+                  <i className="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-primary hover:bg-blue-200 transition-colors">
+                  <i className="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
