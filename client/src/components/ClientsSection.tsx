@@ -7,12 +7,12 @@ export default function ClientsSection() {
   ];
 
   return (
-    <section className="py-12 bg-white border-b border-gray-100">
+    <section className="py-12 bg-white/80 backdrop-blur-sm border-b border-gray-100">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-center text-gray-500 font-medium mb-8">Trusted by industry leaders</p>
         <div className="flex flex-wrap justify-center items-center gap-12 opacity-70">
           {clients.map((client, index) => (
-            <div key={index} className="grayscale hover:grayscale-0 transition-all duration-300">
+            <div key={index} className="grayscale hover:grayscale-0 transition-all duration-300 hover:-translate-y-1">
               <img 
                 src={client.logo} 
                 alt={client.name} 

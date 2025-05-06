@@ -1,16 +1,16 @@
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-gradient-to-r from-primary/5 to-secondary/5 backdrop-blur-sm">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-            Why <span className="text-primary">TechCore</span>
+            Why <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">LumeIT</span>
           </h2>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="p-6 bg-gray-50 rounded-lg hover-up text-center">
-            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-primary mx-auto mb-4">
+          <div className="p-6 bg-white/70 backdrop-blur-sm rounded-xl border border-primary/10 hover-up text-center shadow-sm">
+            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary mx-auto mb-4">
               <i className="fas fa-award text-2xl"></i>
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3">Expertise</h3>
@@ -19,8 +19,8 @@ export default function AboutSection() {
             </p>
           </div>
               
-          <div className="p-6 bg-gray-50 rounded-lg hover-up text-center">
-            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-primary mx-auto mb-4">
+          <div className="p-6 bg-white/70 backdrop-blur-sm rounded-xl border border-primary/10 hover-up text-center shadow-sm">
+            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-secondary/10 text-secondary mx-auto mb-4">
               <i className="fas fa-users text-2xl"></i>
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3">Client-Focused</h3>
@@ -29,8 +29,8 @@ export default function AboutSection() {
             </p>
           </div>
               
-          <div className="p-6 bg-gray-50 rounded-lg hover-up text-center">
-            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-primary mx-auto mb-4">
+          <div className="p-6 bg-white/70 backdrop-blur-sm rounded-xl border border-primary/10 hover-up text-center shadow-sm">
+            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 text-primary mx-auto mb-4">
               <i className="fas fa-rocket text-2xl"></i>
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3">Innovation</h3>

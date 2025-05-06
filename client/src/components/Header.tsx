@@ -32,12 +32,12 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center">
-              <span className="text-primary text-3xl font-bold">Tech<span className="text-secondary">Core</span></span>
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-3xl font-bold">Lume<span className="font-extrabold">IT</span></span>
             </Link>
           </div>
           
@@ -63,13 +63,7 @@ export default function Header() {
             >
               Services
             </a>
-            <a 
-              href="#case-studies" 
-              className="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
-              onClick={(e) => scrollToSection(e, 'case-studies')}
-            >
-              Case Studies
-            </a>
+
             <a 
               href="#contact" 
               onClick={(e) => scrollToSection(e, 'contact')}
@@ -115,13 +109,7 @@ export default function Header() {
           >
             Services
           </a>
-          <a 
-            href="#case-studies" 
-            className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary"
-            onClick={(e) => scrollToSection(e, 'case-studies')}
-          >
-            Case Studies
-          </a>
+
           <a 
             href="#contact" 
             className="block px-3 py-2 text-base font-medium bg-primary text-white hover:bg-primary/90 rounded-md mt-3"
