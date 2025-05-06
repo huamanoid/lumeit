@@ -17,21 +17,21 @@ export default function CtaSection() {
   };
 
   return (
-    <section className="py-16 bg-primary">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl font-bold text-white sm:text-4xl mb-6">
-          Ready to Transform Your Business?
+    <section className="py-16 bg-gradient-to-r from-primary to-blue-600">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl font-bold text-white sm:text-4xl mb-4">
+          Ready for the next step?
         </h2>
-        <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-          Let's discuss how our IT solutions can help you overcome challenges, drive growth, and achieve your business goals.
+        <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
+          Let's build your technology future together
         </p>
         <Button 
           onClick={scrollToContact}
           variant="secondary" 
           size="lg"
-          className="font-medium"
+          className="font-medium px-8"
         >
-          Get Started Today
+          Contact Us
         </Button>
       </div>
     </section>

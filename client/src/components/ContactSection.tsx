@@ -73,19 +73,19 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="section-title">
-            Contact <span className="text-primary">Us</span>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+            Get in <span className="text-primary">Touch</span>
           </h2>
-          <p className="section-subtitle">
-            Have questions or ready to discuss your IT needs? Get in touch with our team today.
+          <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
+            Ready to discuss your technology needs?
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-8 items-start">
           <div>
-            <form onSubmit={handleSubmit} className="bg-gray-50 rounded-xl p-8 shadow-md">
+            <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="firstName">First Name</Label>
@@ -177,75 +177,49 @@ export default function ContactSection() {
           </div>
           
           <div>
-            <div className="bg-gray-50 rounded-xl p-8 shadow-md mb-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Contact Information</h3>
-              
-              <div className="space-y-6">
-                <div className="flex items-start">
+            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+              <div className="space-y-6 mb-8">
+                <div className="flex items-center gap-4">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-10 w-10 rounded-md bg-blue-100 text-primary">
-                      <i className="fas fa-map-marker-alt"></i>
-                    </div>
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="text-base font-medium text-gray-900">Address</h4>
-                    <p className="mt-1 text-gray-600">123 Tech Avenue, Suite 500<br/>San Francisco, CA 94103</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-10 w-10 rounded-md bg-blue-100 text-primary">
-                      <i className="fas fa-phone-alt"></i>
-                    </div>
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="text-base font-medium text-gray-900">Phone</h4>
-                    <p className="mt-1 text-gray-600">(800) 123-4567</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-10 w-10 rounded-md bg-blue-100 text-primary">
+                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-primary">
                       <i className="fas fa-envelope"></i>
                     </div>
                   </div>
-                  <div className="ml-4">
-                    <h4 className="text-base font-medium text-gray-900">Email</h4>
-                    <p className="mt-1 text-gray-600">info@techcoresolutions.com</p>
-                  </div>
+                  <p className="text-gray-600">info@techcoresolutions.com</p>
                 </div>
                 
-                <div className="flex items-start">
+                <div className="flex items-center gap-4">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-10 w-10 rounded-md bg-blue-100 text-primary">
-                      <i className="fas fa-clock"></i>
+                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-primary">
+                      <i className="fas fa-phone-alt"></i>
                     </div>
                   </div>
-                  <div className="ml-4">
-                    <h4 className="text-base font-medium text-gray-900">Business Hours</h4>
-                    <p className="mt-1 text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM<br/>Saturday: 10:00 AM - 2:00 PM</p>
+                  <p className="text-gray-600">(800) 123-4567</p>
+                </div>
+                
+                <div className="flex items-center gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-primary">
+                      <i className="fas fa-map-marker-alt"></i>
+                    </div>
                   </div>
+                  <p className="text-gray-600">123 Tech Avenue, San Francisco, CA</p>
                 </div>
               </div>
-            </div>
-            
-            <div className="bg-gray-50 rounded-xl p-8 shadow-md">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Connect With Us</h3>
-              <div className="flex space-x-4">
-                <a href="#" className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-primary hover:bg-blue-200 transition-colors">
-                  <i className="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#" className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-primary hover:bg-blue-200 transition-colors">
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a href="#" className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-primary hover:bg-blue-200 transition-colors">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-primary hover:bg-blue-200 transition-colors">
-                  <i className="fab fa-instagram"></i>
-                </a>
+              
+              <div className="border-t border-gray-100 pt-6">
+                <p className="text-gray-700 font-medium mb-4">Connect With Us</p>
+                <div className="flex space-x-4">
+                  <a href="#" className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-primary hover:bg-blue-200 transition-colors">
+                    <i className="fab fa-linkedin-in"></i>
+                  </a>
+                  <a href="#" className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-primary hover:bg-blue-200 transition-colors">
+                    <i className="fab fa-twitter"></i>
+                  </a>
+                  <a href="#" className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-primary hover:bg-blue-200 transition-colors">
+                    <i className="fab fa-facebook-f"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
