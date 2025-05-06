@@ -15,9 +15,9 @@
   --card-foreground: 222.2 84% 4.9%;
   --border: 195 35% 92%;
   --input: 195 35% 92%;
-  --primary: 195 80% 55%;
+  --primary: 195 85% 50%;
   --primary-foreground: 210 40% 98%;
-  --secondary: 160 84% 45%;
+  --secondary: 162 84% 42%;
   --secondary-foreground: 210 40% 98%;
   --accent: 175 70% 97%;
   --accent-foreground: 222.2 47.4% 11.2%;
@@ -78,5 +78,21 @@
   
   .section-subtitle {
     @apply mt-4 text-xl text-gray-600 max-w-3xl mx-auto;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+  
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-sm border border-primary/10 rounded-xl shadow-sm;
+  }
+  
+  .glass-button {
+    @apply bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border-white/20 transition-colors;
+  }
+  
+  .decorative-blob {
+    @apply absolute rounded-full blur-3xl opacity-50;
   }
 }

@@ -72,11 +72,15 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-gradient-to-br from-white to-primary/5 relative">
+      {/* Decorative blobs */}
+      <div className="absolute top-1/3 right-0 w-72 h-72 bg-secondary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+      
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-            Get in <span className="text-primary">Touch</span>
+            Get in <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Touch</span>
           </h2>
           <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
             Ready to discuss your technology needs?
@@ -85,7 +89,7 @@ export default function ContactSection() {
         
         <div className="grid md:grid-cols-2 gap-8 items-start">
           <div>
-            <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+            <form onSubmit={handleSubmit} className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-sm border border-primary/10">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="firstName">First Name</Label>
@@ -177,20 +181,20 @@ export default function ContactSection() {
           </div>
           
           <div>
-            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-sm border border-primary/10">
               <div className="space-y-6 mb-8">
                 <div className="flex items-center gap-4">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-primary">
+                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 text-primary">
                       <i className="fas fa-envelope"></i>
                     </div>
                   </div>
-                  <p className="text-gray-600">info@techcoresolutions.com</p>
+                  <p className="text-gray-600">info@lumeit.com</p>
                 </div>
                 
                 <div className="flex items-center gap-4">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-primary">
+                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-secondary/10 text-secondary">
                       <i className="fas fa-phone-alt"></i>
                     </div>
                   </div>
@@ -199,7 +203,7 @@ export default function ContactSection() {
                 
                 <div className="flex items-center gap-4">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-primary">
+                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 text-primary">
                       <i className="fas fa-map-marker-alt"></i>
                     </div>
                   </div>
@@ -210,13 +214,13 @@ export default function ContactSection() {
               <div className="border-t border-gray-100 pt-6">
                 <p className="text-gray-700 font-medium mb-4">Connect With Us</p>
                 <div className="flex space-x-4">
-                  <a href="#" className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-primary hover:bg-blue-200 transition-colors">
+                  <a href="#" className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary/20 transition-colors">
                     <i className="fab fa-linkedin-in"></i>
                   </a>
-                  <a href="#" className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-primary hover:bg-blue-200 transition-colors">
+                  <a href="#" className="h-10 w-10 bg-secondary/10 rounded-full flex items-center justify-center text-secondary hover:bg-secondary/20 transition-colors">
                     <i className="fab fa-twitter"></i>
                   </a>
-                  <a href="#" className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-primary hover:bg-blue-200 transition-colors">
+                  <a href="#" className="h-10 w-10 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full flex items-center justify-center text-primary hover:opacity-80 transition-colors">
                     <i className="fab fa-facebook-f"></i>
                   </a>
                 </div>
