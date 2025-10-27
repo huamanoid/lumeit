@@ -2,221 +2,350 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lume IT</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="LumeIT Solutions - IT Solution Architects for Business. Building software that transforms businesses.">
+    <meta name="theme-color" content="#000000">
+
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="IT solutions, software development, cloud services, business automation, enterprise software">
+    <meta name="author" content="LumeIT Solutions">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lumeitsolutions.com/">
+    <meta property="og:title" content="LumeIT Solutions — IT Solution Architects for Business">
+    <meta property="og:description" content="We develop products out of business data to unlock limitless growth. Automate what matters.">
+    <meta property="og:image" content="https://lumeitsolutions.com/android-chrome-512x512.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lumeitsolutions.com/">
+    <meta property="twitter:title" content="LumeIT Solutions — IT Solution Architects for Business">
+    <meta property="twitter:description" content="We develop products out of business data to unlock limitless growth. Automate what matters.">
+    <meta property="twitter:image" content="https://lumeitsolutions.com/android-chrome-512x512.png">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/feather-icons"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-</head>
-<body class="light-theme">
+    <link rel="preconnect" href="https://upload.wikimedia.org">
 
-    <header>
+    <title>LumeIT Solutions — IT Solution Architects for Business</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
         <div class="container">
-            <a href="#hero" class="logo">
-                <svg viewBox="0 0 100 100" class="logo-icon" aria-label="LumeIT Logo">
-                    <path d="M 20 20 L 20 80 L 40 80 L 40 40 L 60 40 L 60 80 L 80 80 L 80 20 Z" fill="currentColor"/>
-                    </svg>
-                LumeIT
-            </a> <nav class="nav-links">
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#insights">Insights</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <button class="btn btn-primary get-quote-btn">Start a Project</button>
-                <button id="theme-toggle" aria-label="Toggle dark mode">
-                    <i data-feather="moon" class="theme-icon-moon"></i>
-                    <i data-feather="sun" class="theme-icon-sun" style="display:none;"></i>
-                </button>
-                <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
-                    <i data-feather="menu"></i>
-                </button>
+            <div id="company-logo"><strong>Lum<span class="highlight-e">e</span> IT</strong></div>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+                <span class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#about">Product</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Talk to us</a>
             </div>
         </div>
-    </header>
+    </nav>
 
     <main>
-        <section id="hero" class="hero-section">
-            <div class="container">
-                <h1 class="reveal-on-scroll">IT Solution Architect for business</h1>
-                <p class="reveal-on-scroll">We partner with ambitious businesses to engineer robust software solutions, turning complex challenges into strategic advantages and unlocking new opportunities.</p>
-                <a href="#services" class="btn btn-secondary reveal-on-scroll">Discover Our Capabilities</a>
-            </div>
-            <div class="hero-bg"></div>
+        <section id="hero">
+            <h1>Automate What Matters through Human + AI</h1>
+            <p>
+                We partner with ambitious teams to transform business data into efficient products, unlocking limitless growth.            </p>
+            <p class="small">
+                <a href="#contact">Start Your Project</a>
+                <span style="color: #999; margin: 0 0.5rem;">·</span>
+                <a href="#services">Explore Services</a>
+            </p>
         </section>
 
-        <section id="services" class="services-section section-padding">
-            <div class="container">
-                <h2 class="section-title reveal-on-scroll">Our Core Capabilities: Engineering Your Success</h2>
-                <p class="section-subtitle reveal-on-scroll">We provide expert guidance and cutting-edge solutions designed to elevate your digital presence and optimize your operational efficiency.</p>
-                <div class="services-grid">
-                    <div class="service-card reveal-on-scroll">
-                        <div class="service-icon"><i data-feather="code"></i></div>
-                        <h3>Custom Software Development</h3>
-                        <p>Building bespoke web, mobile, and desktop applications tailored to your precise business requirements, ensuring scalability and peak performance.</p>
+        <section id="partners" aria-label="Partner companies">
+            <h2>People from</h2>
+            <div class="carousel-container" role="region" aria-label="Company logos carousel">
+                <div class="carousel-track">
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft logo" loading="lazy" width="180" height="56">
                     </div>
-                    <div class="service-card reveal-on-scroll">
-                        <div class="service-icon"><i data-feather="monitor"></i></div>
-                        <h3>Digital Product Strategy</h3>
-                        <p>From concept to launch, we help define, design, and develop impactful digital products that resonate with your users and achieve market fit.</p>
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google logo" loading="lazy" width="180" height="56">
                     </div>
-                    <div class="service-card reveal-on-scroll">
-                        <div class="service-icon"><i data-feather="git-pull-request"></i></div>
-                        <h3>System Integration & API Services</h3>
-                        <p>Seamlessly connecting disparate systems and data sources to create a unified, efficient, and intelligent operational ecosystem.</p>
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon logo" loading="lazy" width="180" height="56">
                     </div>
-                    <div class="service-card reveal-on-scroll">
-                        <div class="service-icon"><i data-feather="cloud"></i></div>
-                        <h3>Cloud Architecture & DevOps</h3>
-                        <p>Designing and implementing resilient, scalable cloud infrastructure and automating development workflows for accelerated delivery and reliability.</p>
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM logo" loading="lazy" width="180" height="56">
                     </div>
-                    <div class="service-card reveal-on-scroll">
-                        <div class="service-icon"><i data-feather="shield"></i></div>
-                        <h3>Cybersecurity Advisory</h3>
-                        <p>Protecting your digital assets and infrastructure with proactive security strategies, vulnerability assessments, and robust defense mechanisms.</p>
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" alt="Oracle logo" loading="lazy" width="180" height="56">
                     </div>
-                    <div class="service-card reveal-on-scroll">
-                        <div class="service-icon"><i data-feather="bar-chart-2"></i></div>
-                        <h3>Data Analytics & AI Solutions</h3>
-                        <p>Unlocking actionable insights from your data and integrating intelligent AI/ML models to drive smarter decisions and automate complex tasks.</p>
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" alt="SAP logo" loading="lazy" width="180" height="56">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" alt="Salesforce logo" loading="lazy" width="180" height="56">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Adobe_Corporate_Logo.svg" alt="Adobe logo" loading="lazy" width="180" height="56">
+                    </div>
+                    <!-- Duplicate logos for seamless infinite scroll -->
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft logo" loading="lazy" width="180" height="56">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google logo" loading="lazy" width="180" height="56">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon logo" loading="lazy" width="180" height="56">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM logo" loading="lazy" width="180" height="56">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" alt="Oracle logo" loading="lazy" width="180" height="56">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" alt="SAP logo" loading="lazy" width="180" height="56">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" alt="Salesforce logo" loading="lazy" width="180" height="56">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Adobe_Corporate_Logo.svg" alt="Adobe logo" loading="lazy" width="180" height="56">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="insights" class="use-cases-section section-padding">
-            <div class="container">
-                <h2 class="section-title reveal-on-scroll">Strategic Insights: Driving Innovation Forward</h2>
-                <p class="section-subtitle reveal-on-scroll">Explore how our innovative approaches solve critical business challenges and deliver measurable value across diverse sectors.</p>
-                <div class="use-cases-grid">
-                    <div class="use-case-item reveal-on-scroll">
-                        <div class="use-case-icon"><i data-feather="zap"></i></div>
-                        <h3>Accelerating Startup Growth</h3>
-                        <p>Building scalable Minimum Viable Products (MVPs) and growth-focused platforms for startups to achieve rapid market validation and user acquisition.</p>
-                    </div>
-                    <div class="use-case-item reveal-on-scroll">
-                        <div class="use-case-icon"><i data-feather="refresh-cw"></i></div>
-                        <h3>Enterprise Digital Transformation</h3>
-                        <p>Guiding large organizations through comprehensive digital overhauls, modernizing legacy systems, and optimizing business processes for the future.</p>
-                    </div>
-                    <div class="use-case-item reveal-on-scroll">
-                        <div class="use-case-icon"><i data-feather="shopping-bag"></i></div>
-                        <h3>Advanced E-commerce Platforms</h3>
-                        <p>Crafting high-performance, secure, and user-centric e-commerce experiences that drive sales, enhance customer loyalty, and expand market reach.</p>
-                    </div>
+        <section id="services">
+            <h2>What we do</h2>
+            <div class="grid">
+                <div>
+                    <h3>Software</h3>
+                    <p>We don't build features. We engineer solutions that drive measurable business outcomes.</p>
+                </div>
+                <div>
+                    <h3>Strategy</h3>
+                    <p>Every line of code serves your business goals. Technology follows strategy, never the reverse.</p>
+                </div>
+                <div>
+                    <h3>Integration</h3>
+                    <p>Your systems should talk. We make them listen, understand, and work as one.</p>
+                </div>
+                <div>
+                    <h3>Cloud</h3>
+                    <p>Build once, scale forever. Infrastructure that grows as fast as your ambition.</p>
+                </div>
+                <div>
+                    <h3>Security</h3>
+                    <p>Trust isn't given. It's architected, tested, and proven at every layer.</p>
+                </div>
+                <div>
+                    <h3>Intelligence</h3>
+                    <p>Turn data noise into business clarity. Insights that actually change decisions.</p>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="about-section section-padding">
-            <div class="container">
-                <h2 class="section-title reveal-on-scroll">About LumeIT: Engineering Your Future</h2>
-                <div class="about-content">
-                    <div class="about-text reveal-on-scroll">
-                        <h3>Our Purpose: Driving Digital Evolution</h3>
-                        <p style="font-style: italic;">"At LumeIT, we are committed to being the catalyst for your digital evolution. We empower organizations to transcend technological barriers, embrace innovation, and achieve sustainable growth in an ever-changing landscape."</p>
-                        <h3>Our Approach: Precision, Partnership, Progress</h3>
-                        <p>We blend deep technical expertise with strategic insight to deliver solutions that are not just functional, but truly transformative. Our collaborative approach ensures we understand your unique objectives, enabling us to engineer precise, scalable, and secure systems. We pride ourselves on transparent communication, agile methodologies, and a relentless pursuit of excellence, forging partnerships that drive long-term success and empower new possibilities for your business.</p>
-                    </div>
-                    <div class="about-image reveal-on-scroll">
-                        <img src="https://picsum.photos/500/400?random=123" alt="Abstract tech image representing digital collaboration and innovation">
-                    </div>
+        <section id="about">
+            <h2>Built to last, engineered to evolve</h2>
+            <p>We don't chase trends. We build foundations. Technology that serves your business today and adapts to tomorrow.</p>
+            <div class="grid">
+                <div>
+                    <h4>01 — Clarity</h4>
+                    <p>We cut through complexity to find what matters.</p>
+                </div>
+                <div>
+                    <h4>02 — Precision</h4>
+                    <p>Every detail serves a purpose. Nothing is wasted.</p>
+                </div>
+                <div>
+                    <h4>03 — Trust</h4>
+                    <p>Built through consistency, not promises.</p>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="contact-section section-padding">
-            <div class="container">
-                <h2 class="section-title reveal-on-scroll">Let's Build Something Remarkable Together</h2>
-                <!-- <p class="section-subtitle reveal-on-scroll">Ready to discuss your next project? Reach out to us, and let's craft solutions that drive your success.</p> -->
-                <div class="contact-wrapper">
-                    <div class="contact-info reveal-on-scroll">
-                        <h3>Connect with LumeIT</h3>
-                        <p>Whether you have a groundbreaking idea or a complex technical challenge, our team is ready to help you navigate it.</p>
-                        <p><i data-feather="mail"></i> <a href="mailto:info@lumeitsolutions.com">info@lumeitsolutions.com</a></p>
-                        <p><i data-feather="phone"></i> <a href="tel:+917004207878">+91 700-420-7878</a></p>
-                        <p>Stay connected for industry insights and updates!</p>
-                        <div class="social-links">
-                            <a href="#" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
-                            <a href="#" aria-label="Twitter"><i data-feather="twitter"></i></a>
-                            <a href="#" aria-label="github"><i data-feather="github"></i></a>
-                        </div>
-                    </div>
-                    <form id="contact-form" class="contact-form reveal-on-scroll">
-                        <div class="form-group">
-                            <label for="name">Your Full Name</label>
-                            <input type="text" id="name" name="name" required placeholder="John Doe">
-                            <span class="error-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Business Email</label>
-                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                            <span class="error-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Project Focus / Inquiry Type</label>
-                            <input type="text" id="subject" name="subject" required placeholder="e.g., App Development, Chatbot Integration, Digital Transformation">
-                            <span class="error-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">How can we help you?</label>
-                            <textarea id="message" name="message" rows="6" required placeholder="Briefly describe your needs and goals..."></textarea>
-                            <span class="error-message"></span>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
+        <section id="contact">
+            <h2>Let's Build Your Next Agent</h2>
+            <a href="#contact">Talk to us</a>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    LumeIT
+            <div class="footer-grid">
+                <div>
+                    <div id="company-logo"><strong>Lum<span class="highlight-e">e</span> IT</strong></div>
                 </div>
-                <div class="footer-links">
-                    <h4>Quick Navigation</h4>
+                <div>
+                    <h4>Services</h4>
                     <ul>
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#insights">Insights</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#platform">Customer Support Agent</a></li>
+                        <li><a href="#platform">Business Knowledge QnA</a></li>
+                        <li><a href="#platform">CDP Agent</a></li>
+                        <li><a href="#platform">Sales Interaction Agent</a></li>
+                        <li><a href="#platform">Trade Analytics Agent</a></li>
+                        <li><a href="#platform">Digital Marketing Solutions</a></li>
+                        <li><a href="#platform">Recruiting Agent</a></li>
                     </ul>
                 </div>
-                <div class="footer-social">
-                    <h4>Connect With Us</h4>
-                    <a href="#" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
-                    <a href="#" aria-label="Twitter"><i data-feather="twitter"></i></a>
-                    <a href="#" aria-label="GitHub"><i data-feather="github"></i></a>
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#events">Contact</a></li>
+
+                    </ul>
                 </div>
-                <div class="footer-contact-info">
-                    <h4>Get In Touch</h4>
-                    <p><i data-feather="mail"></i> info@lumeitsolutions.com</p>
-                    <p><i data-feather="phone"></i> (+91) 700-420-7878</p>
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#case-studies">Case Studies</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#privacy">Terms Of Service</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="copyright">
+            <div class="footer-bottom">
                 <p>&copy; <span id="current-year"></span> LumeIT Solutions. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
     <script>
-        feather.replace(); // Initialize Feather Icons
+        // Shrink navigation on scroll with smooth detection
+        let lastScrollTop = 0;
+        let ticking = false;
+        const nav = document.querySelector('nav');
+
+        function updateNavbar() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Smooth transition threshold
+            if (scrollTop > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            lastScrollTop = scrollTop;
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateNavbar);
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const isExpanded = navLinks.classList.toggle('show');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+
+            if (navLinks.classList.contains('show') &&
+                !nav.contains(event.target)) {
+                navLinks.classList.remove('show');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navLinks = document.getElementById('navLinks');
+                const menuToggle = document.querySelector('.menu-toggle');
+                if (navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // Update current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Touch support for carousel on mobile
+        const carousel = document.querySelector('.carousel-track');
+        if (carousel) {
+            let startX;
+            let scrollLeft;
+            let isDown = false;
+
+            carousel.addEventListener('touchstart', (e) => {
+                isDown = true;
+                startX = e.touches[0].pageX;
+                carousel.style.animationPlayState = 'paused';
+            });
+
+            carousel.addEventListener('touchend', () => {
+                isDown = false;
+                carousel.style.animationPlayState = 'running';
+            });
+
+            carousel.addEventListener('touchmove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.touches[0].pageX;
+                const walk = (x - startX) * 2;
+                // Adjust carousel position based on touch movement
+            });
+        }
+
+        // Performance: Reduce motion for users who prefer it
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.style.scrollBehavior = 'auto';
+            const carouselTrack = document.querySelector('.carousel-track');
+            if (carouselTrack) {
+                carouselTrack.style.animationDuration = '60s';
+            }
+        }
+
+        // Service Worker registration for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('ServiceWorker registered: ', registration);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                }).catch(function(err) {
+                    console.log(err);
+                });
+            });
+        }
     </script>
 </body>
 </html>
