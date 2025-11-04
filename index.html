@@ -42,7 +42,7 @@
 <body>
     <nav role="navigation" aria-label="Main navigation">
         <div class="container">
-            <div id="company-logo"><strong>Lum<span class="highlight-e">e</span> IT</strong></div>
+            <div id="company-logo"><img src="lumeit-logo.png" alt="LumeIT Solutions" /></div>
             <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
                 <span class="hamburger">
                     <span class="hamburger-line"></span>
@@ -50,9 +50,8 @@
                 </span>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="#about">Product</a>
                 <a href="#services">Services</a>
-                <a href="#contact">Talk to us</a>
+                <a href="mailto:contact@lumeitsolutions.com?subject=General%20Inquiry" class="cta-button">Talk to us</a>
             </div>
         </div>
     </nav>
@@ -63,14 +62,14 @@
             <p>
                 We partner with ambitious teams to transform business data into efficient products, unlocking limitless growth.            </p>
             <p class="small">
-                <a href="#contact">Start Your Project</a>
+                <a href="mailto:contact@lumeitsolutions.com?subject=New%20Project%20Inquiry" class="cta-button">Start Your Project</a>
                 <span style="color: #999; margin: 0 0.5rem;">·</span>
                 <a href="#services">Explore Services</a>
             </p>
         </section>
 
         <section id="partners" aria-label="Partner companies">
-            <h2>People from</h2>
+            <h2>Veterans from</h2>
             <div class="carousel-container" role="region" aria-label="Company logos carousel">
                 <div class="carousel-track">
                     <div class="carousel-item">
@@ -127,29 +126,29 @@
         </section>
 
         <section id="services">
-            <h2>What we do</h2>
+            <h2 class="scroll-reveal">What we do</h2>
             <div class="grid">
-                <div>
+                <div class="scroll-reveal">
                     <h3>Software</h3>
                     <p>We don't build features. We engineer solutions that drive measurable business outcomes.</p>
                 </div>
-                <div>
+                <div class="scroll-reveal">
                     <h3>Strategy</h3>
                     <p>Every line of code serves your business goals. Technology follows strategy, never the reverse.</p>
                 </div>
-                <div>
+                <div class="scroll-reveal">
                     <h3>Integration</h3>
                     <p>Your systems should talk. We make them listen, understand, and work as one.</p>
                 </div>
-                <div>
+                <div class="scroll-reveal">
                     <h3>Cloud</h3>
                     <p>Build once, scale forever. Infrastructure that grows as fast as your ambition.</p>
                 </div>
-                <div>
+                <div class="scroll-reveal">
                     <h3>Security</h3>
                     <p>Trust isn't given. It's architected, tested, and proven at every layer.</p>
                 </div>
-                <div>
+                <div class="scroll-reveal">
                     <h3>Intelligence</h3>
                     <p>Turn data noise into business clarity. Insights that actually change decisions.</p>
                 </div>
@@ -157,18 +156,18 @@
         </section>
 
         <section id="about">
-            <h2>Built to last, engineered to evolve</h2>
-            <p>We don't chase trends. We build foundations. Technology that serves your business today and adapts to tomorrow.</p>
+            <h2 class="scroll-reveal">Built to last, engineered to evolve</h2>
+            <p class="scroll-reveal">We don't chase trends. We build foundations. Technology that serves your business today and adapts to tomorrow.</p>
             <div class="grid">
-                <div>
+                <div class="scroll-reveal">
                     <h4>01 — Clarity</h4>
                     <p>We cut through complexity to find what matters.</p>
                 </div>
-                <div>
+                <div class="scroll-reveal">
                     <h4>02 — Precision</h4>
                     <p>Every detail serves a purpose. Nothing is wasted.</p>
                 </div>
-                <div>
+                <div class="scroll-reveal">
                     <h4>03 — Trust</h4>
                     <p>Built through consistency, not promises.</p>
                 </div>
@@ -176,8 +175,8 @@
         </section>
 
         <section id="contact">
-            <h2>Let's Build Your Next Agent</h2>
-            <a href="#contact">Talk to us</a>
+            <h2 class="scroll-reveal">Let's Build Your Next Agent</h2>
+            <a href="mailto:contact@lumeitsolutions.com?subject=General%20Inquiry" class="scroll-reveal cta-button">Talk to us</a>
         </section>
     </main>
 
@@ -185,7 +184,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <div id="company-logo"><strong>Lum<span class="highlight-e">e</span> IT</strong></div>
+                    <div id="company-logo"><img src="lumeit-logo.png" alt="LumeIT Solutions" /></div>
+                    <p class="brand-tagline">Architecting intelligent systems and tools that fundamentally transform how your business functions, competes and evolves — because tomorrow's businesses are built today.</p>
                 </div>
                 <div>
                     <h4>Services</h4>
@@ -225,6 +225,10 @@
     </footer>
 
     <script>
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
         // Shrink navigation on scroll with smooth detection
         let lastScrollTop = 0;
         let ticking = false;
@@ -250,6 +254,31 @@
                 ticking = true;
             }
         }, { passive: true });
+
+        // Scroll Reveal System - Nature-Inspired Animations
+        if (!prefersReducedMotion) {
+            const scrollRevealObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Add stagger delay based on index within parent
+                        const delay = index * 100;
+                        setTimeout(() => {
+                            entry.target.classList.add('revealed');
+                        }, delay);
+                        scrollRevealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px'
+            });
+
+            // Observe sections and grid items
+            document.addEventListener('DOMContentLoaded', () => {
+                const revealElements = document.querySelectorAll('.scroll-reveal');
+                revealElements.forEach(el => scrollRevealObserver.observe(el));
+            });
+        }
 
         // Mobile menu toggle
         function toggleMenu() {

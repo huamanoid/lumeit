@@ -7,24 +7,139 @@
   --font-display: 'Cormorant Garamond', serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  --color-primary: #000000;
-  --color-secondary: #333333;
-  --color-tertiary: #666666;
-  --color-light: #999999;
-  --color-bg: #ffffff;
-  --color-border: #e0e0e0;
+  /* Monochrome Palette - Nature-Inspired Grayscale */
+  --color-pure-white: #FFFFFF;
+  --color-snow: #FEFEFE;
+  --color-alabaster: #FAFAFA;
+  --color-whisper: #F5F5F5;
+  --color-porcelain: #EEEEEE;
+  --color-silver: #E0E0E0;
+  --color-steel: #999999;
+  --color-graphite: #666666;
+  --color-charcoal: #3E3E3E;
+  --color-onyx: #333333;
+  --color-pure-black: #000000;
 
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 3rem;
-  --space-xl: 4rem;
-  --space-2xl: 6rem;
+  /* Legacy color mappings */
+  --color-primary: var(--color-pure-black);
+  --color-secondary: var(--color-onyx);
+  --color-tertiary: var(--color-graphite);
+  --color-light: var(--color-steel);
+  --color-bg: var(--color-pure-white);
+  --color-border: var(--color-silver);
 
+  /* Spacing Scale - Consistent Progression
+     Rationale: Smoother increments prevent jarring jumps
+     0.5 → 1 → 1.5 → 2 → 3 → 4 → 5 → 6 rem
+     Each step feels natural, no gaps too large or too small
+  */
+  --space-xs: 0.5rem;    /* 8px - Tight inline spacing */
+  --space-sm: 1rem;      /* 16px - Small component spacing */
+  --space-md: 1.5rem;    /* 24px - Medium component spacing */
+  --space-lg: 2rem;      /* 32px - Large component spacing */
+  --space-xl: 3rem;      /* 48px - Section spacing */
+  --space-2xl: 4rem;     /* 64px - Major section spacing */
+  --space-3xl: 5rem;     /* 80px - Extra large spacing */
+  --space-4xl: 6rem;     /* 96px - Hero/landmark spacing */
+
+  /* Fibonacci-Inspired Animation Timings */
+  --timing-ultra-fast: 89ms;
+  --timing-fast: 144ms;
+  --timing-quick: 233ms;
+  --timing-medium: 377ms;
+  --timing-moderate: 610ms;
+  --timing-slow: 987ms;
+  --timing-very-slow: 1597ms;
+  --timing-ambient: 2584ms;
+
+  /* Natural Motion Easing Functions */
+  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in-out-smooth: cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-out-quart: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Legacy transition */
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-natural: var(--ease-out-cubic);
+}
 
-  /* Smooth natural easing for animations */
-  --ease-natural: cubic-bezier(0.33, 1, 0.68, 1);
+/* Nature-Inspired Keyframe Animations */
+
+/* Dawn Light Sweep - Subtle gradient drift */
+@keyframes dawn-sweep {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Gentle Float - Like clouds drifting */
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Breathing Pulse - Subtle scale variation */
+@keyframes breath {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.005); }
+}
+
+/* Ripple Expand - Water ripple effect */
+@keyframes ripple-expand {
+  0% {
+    transform: scale(0);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Fade In Up - Scroll reveal animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Shimmer - Subtle light play */
+@keyframes shimmer {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.2; }
+}
+
+/* Gradient Drift - Ambient background movement */
+@keyframes gradient-drift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Ink Drop - Concentric waves on button press */
+@keyframes ink-drop {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(0,0,0,0.3),
+      0 0 0 0 rgba(0,0,0,0.2),
+      0 0 0 0 rgba(0,0,0,0.1);
+  }
+  40% {
+    box-shadow:
+      0 0 0 20px rgba(0,0,0,0),
+      0 0 0 10px rgba(0,0,0,0.15),
+      0 0 0 5px rgba(0,0,0,0.2);
+  }
+  100% {
+    box-shadow:
+      0 0 0 40px rgba(0,0,0,0),
+      0 0 0 30px rgba(0,0,0,0),
+      0 0 0 20px rgba(0,0,0,0);
+  }
 }
 
 /* Reset & Foundation */
@@ -41,16 +156,37 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-bg);
+  background: linear-gradient(135deg, var(--color-pure-white) 0%, var(--color-alabaster) 50%, var(--color-pure-white) 100%);
+  background-size: 200% 200%;
+  animation: gradient-drift 60s ease-in-out infinite;
   color: var(--color-primary);
   line-height: 1.8;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding-top: 80px;
+  position: relative;
 }
 
-/* Typography System */
+/* Scroll reveal base state */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px) scale(0.97);
+  transition: opacity var(--timing-moderate) var(--ease-out-quart),
+              transform var(--timing-slow) var(--ease-out-quart);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Typography System - Clear 1.5x Ratio Hierarchy
+   Rationale: Consistent scaling creates predictable visual rhythm
+   Each level is ~1.5x the next, making hierarchy immediately obvious
+   Desktop: H1(4rem) > H2(2.667rem) > H3(1.778rem) > H4(1.25rem) > p(1rem)
+   Mobile: Scales down proportionally while maintaining ratio
+*/
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 300;
@@ -61,72 +197,144 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  /* Hero headline: 40-64px - dominant visual presence */
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 480;
   letter-spacing: -0.03em;
   line-height: 1.1;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg); /* Larger break after main headline */
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  /* Section headline: 28-42.7px - clear separation from H1 */
+  font-size: clamp(1.75rem, 4vw, 2.667rem);
   font-weight: 300;
   letter-spacing: -0.02em;
   margin-bottom: var(--space-md);
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  /* Subsection: 21.3-28.4px - 1.5x-1.78x body text */
+  font-size: clamp(1.333rem, 3vw, 1.778rem);
   font-weight: 400;
   letter-spacing: -0.01em;
   margin-bottom: var(--space-sm);
 }
 
 h4 {
-  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  /* Small heading: 18-20px - subtle but distinct */
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
   font-weight: 500;
   letter-spacing: 0;
   margin-bottom: var(--space-sm);
 }
 
 p {
+  /* Body text baseline: 1rem (16px) - universal reading standard */
   font-family: var(--font-body);
-  font-size: 1.0625rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.7; /* Optimal for readability */
   margin-bottom: var(--space-md);
   max-width: 70ch;
   color: var(--color-secondary);
 }
 
 .lead {
+  /* Emphasized intro: 1.25rem (20px) - 1.25x body */
   font-size: 1.25rem;
-  line-height: 1.75;
+  line-height: 1.65;
   font-weight: 300;
   color: var(--color-tertiary);
 }
 
 .small {
+  /* Fine print: 0.875rem (14px) - clearly subordinate */
   font-size: 0.875rem;
   line-height: 1.6;
   color: var(--color-tertiary);
 }
 
-/* Links */
+/* Links - Ripple on Water Effect */
 a {
   color: var(--color-primary);
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: var(--transition);
+  transition: border-bottom-color var(--timing-quick) var(--ease-out-cubic),
+              color var(--timing-quick) var(--ease-out-cubic),
+              transform var(--timing-fast) var(--ease-out-cubic);
   display: inline-block;
   touch-action: manipulation;
+  position: relative;
+  overflow: hidden;
+}
+
+a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.03) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width var(--timing-medium) var(--ease-out-cubic),
+              height var(--timing-medium) var(--ease-out-cubic);
+  pointer-events: none;
 }
 
 a:hover {
   border-bottom-color: var(--color-primary);
 }
 
+a:hover::before {
+  width: 200px;
+  height: 200px;
+}
+
 a:active {
-  opacity: 0.7;
+  transform: scale(0.96);
+  transition-duration: var(--timing-ultra-fast);
+}
+
+/* Focus States - WCAG 2.1 AA Compliant
+   Rationale: Clear visual feedback for keyboard navigation
+   Uses 2px outline with offset for visibility against all backgrounds
+*/
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* CTA buttons need special focus treatment due to gradient background */
+nav .nav-links a[href="#contact"]:focus-visible,
+#contact a:focus-visible,
+.cta-button:focus-visible,
+footer a[href="#contact"]:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu toggle button focus */
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove default focus outline (we're replacing with custom) */
+*:focus {
+  outline: none;
+}
+
+/* Only show custom outline on keyboard focus, not mouse click */
+*:focus:not(:focus-visible) {
+  outline: none;
 }
 
 /* Navigation */
@@ -164,36 +372,60 @@ nav strong {
   letter-spacing: -0.01em;
 }
 
-#company-logo strong {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1;
+#company-logo {
   position: relative;
-  transition: font-size 0.5s var(--ease-natural);
 }
 
-nav.scrolled #company-logo strong {
-  font-size: 1.25rem; /* Reduced from default 1.5rem */
+#company-logo img {
+  height: 76px;  /* Increased by 90% from 40px */
+  width: auto;
+  display: block;
+  transition: height var(--timing-moderate) var(--ease-out-cubic),
+              transform var(--timing-medium) var(--ease-out-cubic),
+              filter var(--timing-quick) var(--ease-out-cubic);
+  filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
 }
 
-#company-logo .highlight-e {
-  color: #ffffff;
-  background-color: #000000;
-  padding: 0 0.15rem;
-  display: inline-block;
-  line-height: 1;
-  vertical-align: baseline;
-  height: 0.72em;
-  overflow: hidden;
-  position: relative;
-  top: 0.02em;
+#company-logo img:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.3));
+}
+
+#company-logo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  animation: shimmer 1.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+nav.scrolled #company-logo img {
+  height: 61px; /* 20% reduction from 76px */
 }
 
 nav .nav-links {
   display: flex;
   gap: var(--space-lg);
   align-items: center;
+}
+
+/* Navigation CTA button - Proper vertical alignment */
+nav .cta-button {
+  padding: 0.75rem 1.5rem !important;  /* Fixed padding - no shrinking on scroll */
+  min-height: unset;  /* Remove min-height in nav */
+  line-height: 1.2;  /* Better vertical centering */
+  font-size: 0.875rem !important;  /* Consistent with nav font size */
+}
+
+/* Prevent button from shrinking when nav scrolls */
+nav.scrolled .cta-button {
+  padding: 0.75rem 1.5rem !important;
+  font-size: 0.875rem !important;
 }
 
 nav a {
@@ -220,30 +452,15 @@ nav.scrolled a {
   padding-bottom: 0.2rem;
 }
 
-/* Contact button - pill shape */
+/* Contact button inherits from .cta-button (unified styling) */
 nav .nav-links a[href="#contact"] {
-  background-color: #008575;
-  color: #ffffff;
-  border-radius: 50px;
-  padding: 0.65rem 0.8203125rem; /* Added another 1px top and bottom */
-  border-bottom: 2px solid transparent;
-  transition: background-color 0.25s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1;
-  vertical-align: middle;
-  margin-bottom: 3px; /* Align with nav items baseline */
-}
-
-nav .nav-links a[href="#contact"]:hover {
-  background-color: #006d5f;
-  border-bottom-color: transparent;
+  /* Inherits .cta-button styling applied in HTML */
+  margin-bottom: 3px;
 }
 
 nav.scrolled .nav-links a[href="#contact"] {
-  padding: 0.57rem 0.721875rem; /* Added another 1px top and bottom */
+  /* Slightly smaller padding when scrolled */
+  padding: clamp(0.625rem, 1.5vw, 0.875rem) clamp(1.25rem, 3vw, 2rem);
   margin-bottom: 3px;
 }
 
@@ -295,78 +512,156 @@ nav.scrolled .nav-links a[href="#contact"] {
   transform: translateY(-4.5px) rotate(-45deg);
 }
 
-/* Layout */
+/* Layout - Seamless Flow */
 section {
   max-width: 1400px;
   margin: 0 auto;
-  padding: var(--space-2xl) var(--space-md);
-  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-xl) var(--space-md);
+  /* No borders - sections flow naturally into each other */
+  position: relative;
 }
 
-section:last-of-type {
-  border-bottom: none;
+/* Optional: Extremely subtle separation through spacing */
+section + section {
+  margin-top: var(--space-lg);
 }
 
-/* Hero Section */
+/* Hero Section - Dawn Awakening */
 #hero {
-  padding: var(--space-2xl) var(--space-md);
+  padding: var(--space-4xl) var(--space-md);
   min-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, var(--color-pure-white) 0%, var(--color-alabaster) 50%, var(--color-pure-white) 100%);
+  background-size: 200% 200%;
+  animation: dawn-sweep 180s ease-in-out infinite;
 }
 
 #hero h1 {
   margin-bottom: var(--space-lg);
   max-width: 20ch;
+  opacity: 0;
+  animation: fade-in-up var(--timing-slow) var(--ease-out-quart) 0.3s forwards;
 }
 
 #hero p {
-  font-size: 1.125rem;
-  line-height: 1.75;
+  font-size: 1rem;
+  line-height: 1.7;
   color: var(--color-tertiary);
   max-width: 60ch;
+  opacity: 0;
+  animation: fade-in-up var(--timing-moderate) var(--ease-out-quart) 0.6s forwards;
 }
 
 #hero p:first-of-type {
+  /* Lead paragraph - emphasized intro */
   font-size: 1.25rem;
+  line-height: 1.65;
   margin-bottom: var(--space-lg);
 }
 
-/* Grid System */
+#hero p.small {
+  opacity: 0;
+  animation: fade-in-up var(--timing-moderate) var(--ease-out-quart) 0.9s forwards;
+}
+
+#hero p.small a {
+  position: relative;
+  display: inline-block;
+  animation: gentle-float 4s var(--ease-in-out-smooth) infinite;
+  animation-delay: 1.2s;
+}
+
+#hero p.small a:nth-child(3) {
+  animation-delay: 1.4s;
+}
+
+/* Grid System - Intelligent Whitespace Distribution
+   Rationale: Explicit column counts prevent awkward auto-fit layouts
+   Generous spacing (48px gap + 48px padding) creates breathing room
+   Max-width keeps cards at optimal reading size even on large screens
+*/
 .grid {
   display: grid;
-  gap: var(--space-lg);
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  margin-top: var(--space-lg);
+  gap: var(--space-xl);  /* 48px - generous breathing between cards */
+  grid-template-columns: repeat(3, 1fr);  /* 3 columns on desktop for symmetry */
+  margin-top: var(--space-xl);  /* 48px - clear separation from heading */
+  max-width: 1200px;  /* Prevents cards from becoming too wide */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .grid > div {
-  padding: var(--space-md);
+  padding: var(--space-xl);  /* 48px internal padding - luxurious space */
   border: 1px solid var(--color-border);
-  transition: var(--transition);
+  transition: border-color var(--timing-quick) var(--ease-out-cubic),
+              box-shadow var(--timing-medium) var(--ease-out-cubic) 40ms,
+              transform var(--timing-medium) var(--ease-out-cubic) 80ms;
+  animation: breath 6s var(--ease-in-out-smooth) infinite;
+  position: relative;
+  background: var(--color-pure-white);
 }
+
+/* Stagger breathing animation */
+.grid > div:nth-child(1) { animation-delay: 0s; }
+.grid > div:nth-child(2) { animation-delay: 0.8s; }
+.grid > div:nth-child(3) { animation-delay: 1.6s; }
+.grid > div:nth-child(4) { animation-delay: 2.4s; }
+.grid > div:nth-child(5) { animation-delay: 3.2s; }
+.grid > div:nth-child(6) { animation-delay: 4s; }
 
 .grid > div:hover {
-  border-color: var(--color-primary);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border-color: var(--color-graphite);
+  /* Multi-layer shadow for depth - simulates light from top-left */
+  box-shadow:
+    0 4px 8px rgba(0,0,0,0.04),
+    0 8px 16px rgba(0,0,0,0.06),
+    0 16px 32px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+  animation-play-state: paused;
 }
 
-/* Services Section */
-#services .grid > div {
-  padding: var(--space-lg);
+.grid > div:hover h3 {
+  color: var(--color-pure-black);
+  transition: color var(--timing-medium) var(--ease-out-cubic);
+}
+
+.grid > div:hover p {
+  opacity: 0.9;
+  transition: opacity var(--timing-medium) var(--ease-out-cubic);
+}
+
+/* Services Section - Balanced Card Content
+   Rationale: Generous whitespace lets content breathe
+   H3 follows typography system (1.778rem), not custom size
+   Increased H3 margin creates clear visual separation
+*/
+#services h2 {
+  text-align: center;  /* Center section title for symmetry */
+  margin-bottom: var(--space-xl);  /* 48px - clear break before cards */
 }
 
 #services h3 {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: clamp(1.333rem, 3vw, 1.778rem);  /* Matches h3 system */
   font-weight: 400;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);  /* 32px - more space before description */
+  line-height: 1.2;
 }
 
-/* About Section */
+#services .grid > div p {
+  margin-bottom: 0;  /* Remove bottom margin - card padding handles it */
+  line-height: 1.7;  /* Match body text for consistency */
+  color: var(--color-tertiary);  /* Slightly lighter for hierarchy */
+}
+
+/* About Section - Symmetry and Balance */
 #about {
   text-align: center;
+  position: relative;
+  background: transparent;
 }
 
 #about h2 {
@@ -379,9 +674,29 @@ section:last-of-type {
   max-width: 60ch;
 }
 
+#about .grid {
+  position: relative;
+}
+
 #about .grid > div {
   text-align: left;
   padding: var(--space-lg);
+  position: relative;
+}
+
+/* Center card emphasis (02 - Precision) */
+#about .grid > div:nth-child(2) {
+  transform-origin: center;
+}
+
+#about .grid > div:nth-child(2):hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Mirror effect for cards 1 and 3 */
+#about .grid > div:nth-child(1):hover,
+#about .grid > div:nth-child(3):hover {
+  transform: translateY(-4px) scale(1.01);
 }
 
 #about h4 {
@@ -392,10 +707,15 @@ section:last-of-type {
   text-transform: uppercase;
   color: var(--color-light);
   margin-bottom: var(--space-sm);
+  transition: color var(--timing-quick) var(--ease-out-cubic);
+}
+
+#about .grid > div:hover h4 {
+  color: var(--color-graphite);
 }
 
 #about .grid p {
-  font-size: 1.0625rem;
+  font-size: 1rem;
   color: var(--color-secondary);
 }
 
@@ -424,7 +744,7 @@ section:last-of-type {
   margin: 0 auto;
 }
 
-/* Partners Carousel */
+/* Partners Carousel - Flowing Stream */
 .carousel-container {
   width: 100%;
   overflow: hidden;
@@ -435,16 +755,57 @@ section:last-of-type {
   align-items: center;
 }
 
+.carousel-container::before,
+.carousel-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.carousel-container::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--color-pure-white) 0%, transparent 100%);
+}
+
+.carousel-container::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--color-pure-white) 0%, transparent 100%);
+}
+
 .carousel-track {
   display: flex;
   align-items: center;
   gap: 4rem;
-  animation: scroll 30s linear infinite;
+  animation: scroll 35s var(--ease-in-out-smooth) infinite;
   will-change: transform;
 }
 
 .carousel-track:hover {
   animation-play-state: paused;
+}
+
+@keyframes float-1 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes float-2 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes float-3 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes float-4 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
 }
 
 .carousel-item {
@@ -456,16 +817,31 @@ section:last-of-type {
   min-width: 180px;
 }
 
+/* Individual floating animations with unique phases */
+.carousel-item:nth-child(1), .carousel-item:nth-child(9) { animation: float-1 4s ease-in-out infinite; }
+.carousel-item:nth-child(2), .carousel-item:nth-child(10) { animation: float-2 5s ease-in-out infinite 0.5s; }
+.carousel-item:nth-child(3), .carousel-item:nth-child(11) { animation: float-3 6s ease-in-out infinite 1s; }
+.carousel-item:nth-child(4), .carousel-item:nth-child(12) { animation: float-4 5.5s ease-in-out infinite 1.5s; }
+.carousel-item:nth-child(5), .carousel-item:nth-child(13) { animation: float-1 4.5s ease-in-out infinite 2s; }
+.carousel-item:nth-child(6), .carousel-item:nth-child(14) { animation: float-2 6.5s ease-in-out infinite 2.5s; }
+.carousel-item:nth-child(7), .carousel-item:nth-child(15) { animation: float-3 5s ease-in-out infinite 3s; }
+.carousel-item:nth-child(8), .carousel-item:nth-child(16) { animation: float-4 7s ease-in-out infinite 3.5s; }
+
 .carousel-item img {
   max-width: 180px;
   max-height: 56px;
   width: auto;
   height: auto;
   object-fit: contain;
-  /* Grey tone effect with transparency */
   filter: grayscale(100%) brightness(0.6) contrast(1.1);
   opacity: 0.5;
-  transition: all 0.4s ease;
+  transition: filter var(--timing-medium) var(--ease-out-cubic),
+              opacity var(--timing-medium) var(--ease-out-cubic),
+              transform var(--timing-moderate) var(--ease-out-cubic);
+}
+
+.carousel-item:hover {
+  animation-play-state: paused;
 }
 
 .carousel-item:hover img {
@@ -483,44 +859,117 @@ section:last-of-type {
   }
 }
 
-/* Contact Section */
+/* Contact Section - Invitation */
 #contact {
   text-align: center;
-  padding: var(--space-2xl) var(--space-md);
+  padding: var(--space-4xl) var(--space-md);
+  background: transparent;
+  position: relative;
 }
 
 #contact h2 {
   margin-bottom: var(--space-lg);
 }
 
-#contact a {
-  background-color: #008575;
+/* CTA Button - Enhanced Ripple Effect with adaptive sizing */
+#contact a,
+.cta-button {
+  background: linear-gradient(135deg, #008575 0%, #006d5f 100%);
   color: #ffffff;
   border-radius: 50px;
-  padding: 0.65rem 0.8203125rem;
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2.5rem);
   border-bottom: 2px solid transparent;
-  transition: background-color 0.25s ease;
+  transition: background var(--timing-quick) var(--ease-out-cubic),
+              transform var(--timing-quick) var(--ease-out-cubic),
+              box-shadow var(--timing-medium) var(--ease-out-cubic),
+              padding var(--timing-moderate) var(--ease-out-cubic);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   line-height: 1;
   font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-size: clamp(0.875rem, 2vw, 1rem);
   font-weight: 400;
   letter-spacing: 0.02em;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 4px 12px rgba(0, 133, 117, 0.2);
+  min-height: 44px;
+  white-space: nowrap;
 }
 
-#contact a:hover {
-  background-color: #006d5f;
+/* Gentle pulse animation on CTA */
+@keyframes cta-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(0, 133, 117, 0.2);
+  }
+  50% {
+    box-shadow: 0 6px 20px rgba(0, 133, 117, 0.35);
+  }
+}
+
+#contact a,
+.cta-button {
+  animation: cta-pulse 3s var(--ease-in-out-smooth) infinite;
+}
+
+#contact a:hover,
+.cta-button:hover {
+  background: linear-gradient(135deg, #006d5f 0%, #005a4f 100%);
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(0, 133, 117, 0.4);
   border-bottom-color: transparent;
+  animation-play-state: paused;
+}
+
+#contact a:active,
+.cta-button:active {
+  transform: scale(0.97);
+  transition-duration: var(--timing-ultra-fast);
+  animation: ink-drop var(--timing-moderate) var(--ease-out-quart);
+}
+
+/* Concentric ring effect on click */
+#contact a::after,
+.cta-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(0, 133, 117, 0.6);
+  border-radius: 50px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#contact a:active::after,
+.cta-button:active::after {
+  animation: ring-expand var(--timing-moderate) var(--ease-out-cubic);
+}
+
+@keyframes ring-expand {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+  }
+  100% {
+    width: 140%;
+    height: 200%;
+    opacity: 0;
+  }
 }
 
 /* Footer */
 footer {
-  background-color: #fafafa;
+  background: var(--color-alabaster);
   border-top: 1px solid var(--color-border);
-  padding: var(--space-2xl) var(--space-md) var(--space-md);
+  padding: var(--space-2xl) var(--space-md);
+  position: relative;
 }
 
 footer .container {
@@ -529,19 +978,27 @@ footer .container {
   padding: 0 var(--space-md);
 }
 
-/* Footer logo - match scrolled navigation logo dimensions (1.25rem) */
-footer #company-logo strong {
-  font-size: 1.25rem;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1;
+/* Footer logo - increased by 90% */
+footer #company-logo img {
+  height: 61px;
+  width: auto;
+}
+
+.brand-tagline {
+  font-size: 0.75rem;
+  color: var(--color-light);
+  margin-top: var(--space-md);
+  margin-bottom: 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  max-width: 45ch;
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr auto auto auto 0.2fr; /* Added 1fr column on right to shift sections towards center */
-  gap: 5rem;
+  gap: clamp(2rem, 4vw, 4rem);
   margin-bottom: var(--space-xl);
 }
 
@@ -579,7 +1036,7 @@ footer ul li {
 
 footer ul li a {
   font-size: 0.9375rem;
-  color: var(--color-primary); /* Black */
+  color: #3E3E3E; /* 33% darker from previous */
   border-bottom: 1px solid transparent;
   transition: var(--transition);
 }
@@ -589,24 +1046,11 @@ footer ul li a:hover {
   border-bottom-color: var(--color-secondary);
 }
 
-/* Footer Book a Demo button - match nav Contact button */
+/* Footer CTA button inherits from .cta-button (unified styling) */
 footer a[href="#contact"] {
-  background-color: #008575;
-  color: #ffffff;
-  border-radius: 50px;
-  padding: 0.65rem 0.8203125rem; /* Added another 1px top and bottom */
-  border-bottom: 2px solid transparent;
-  transition: background-color 0.25s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1;
-}
-
-footer a[href="#contact"]:hover {
-  background-color: #006d5f;
-  border-bottom-color: transparent;
+  /* Inherits .cta-button styling applied in HTML */
+  font-size: 0.875rem;
+  padding: 0.75rem 1.5rem;
 }
 
 .footer-bottom {
@@ -631,9 +1075,27 @@ footer a[href="#contact"]:hover {
 }
 
 /* Responsive Design */
+/* Tablet Breakpoint - 2 Column Grid
+   Rationale: 769-1024px width needs 2 columns for optimal card width
+   Maintains generous spacing, cards don't get too narrow or too wide
+*/
 @media (max-width: 1024px) {
   :root {
     --space-2xl: 4rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);  /* 2 columns on tablet */
+    gap: var(--space-lg);  /* Slightly tighter - 32px */
+    max-width: 800px;  /* Narrower container for tablet */
+  }
+
+  .grid > div {
+    padding: var(--space-lg);  /* 32px padding on tablet */
+  }
+
+  #services h3 {
+    margin-bottom: var(--space-md);  /* 24px on tablet */
   }
 
   .footer-grid {
@@ -644,6 +1106,9 @@ footer a[href="#contact"]:hover {
 @media (max-width: 768px) {
   body {
     padding-top: 70px;
+    /* Disable body background animation on mobile for performance */
+    animation: none;
+    background: var(--color-pure-white);
   }
 
   nav {
@@ -656,13 +1121,38 @@ footer a[href="#contact"]:hover {
   }
 
   /* Prevent logo from shrinking on mobile */
-  nav.scrolled #company-logo strong {
-    font-size: 1.5rem; /* Keep original size */
+  nav.scrolled #company-logo img {
+    height: 76px; /* Keep original size */
   }
 
   /* Prevent links from shrinking on mobile */
   nav.scrolled a {
     font-size: 0.875rem; /* Keep original size - 14px */
+  }
+
+  /* Disable logo shimmer on mobile */
+  #company-logo::after {
+    display: none;
+  }
+
+  /* Reduce hero animations on mobile */
+  #hero {
+    background: var(--color-alabaster);
+    animation: none;
+  }
+
+  #hero p.small a {
+    animation: none;
+  }
+
+  /* Reduce grid breathing animation intensity on mobile */
+  .grid > div {
+    animation-duration: 8s;
+  }
+
+  /* Reduce scroll reveal distance on mobile */
+  .scroll-reveal {
+    transform: translateY(16px) scale(0.98);
   }
 
   nav .container {
@@ -740,23 +1230,28 @@ footer a[href="#contact"]:hover {
     background-color: rgba(0, 0, 0, 0.03);
   }
 
-  /* Contact button on mobile */
+  /* Contact button on mobile - full width with adaptive padding */
   nav .nav-links a[href="#contact"] {
-    background-color: #008575;
+    background: linear-gradient(135deg, #008575 0%, #006d5f 100%);
     color: #ffffff;
     border-radius: 50px;
     margin: var(--space-sm) var(--space-md);
-    padding: 0.85rem 0.8203125rem; /* Added another 1px top and bottom */
+    padding: clamp(0.75rem, 2.5vw, 1rem) clamp(1.5rem, 5vw, 2.5rem);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     line-height: 1;
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+    min-height: 44px;
+    width: calc(100% - var(--space-md) * 2);
+    overflow: hidden;
+    position: relative;
   }
 
   nav .nav-links a[href="#contact"]:hover,
   nav .nav-links a[href="#contact"]:active {
-    background-color: #006d5f;
+    background: linear-gradient(135deg, #006d5f 0%, #005a4f 100%);
     color: #ffffff;
   }
 
@@ -783,18 +1278,32 @@ footer a[href="#contact"]:hover {
     font-size: clamp(2rem, 8vw, 3rem);
   }
 
+  /* Mobile Grid - Single Column with Balanced Spacing
+     Rationale: 1 column on mobile, but maintain visual breathing
+     24px gap + 24px padding = consistent rhythm even on small screens
+  */
   .grid {
     grid-template-columns: 1fr;
-    gap: var(--space-md);
+    gap: var(--space-md);  /* 24px gap between cards */
+    margin-top: var(--space-lg);  /* 32px from heading */
   }
 
   .grid > div {
-    padding: var(--space-md);
+    padding: var(--space-md);  /* 24px internal padding */
+  }
+
+  #services h2 {
+    margin-bottom: var(--space-lg);  /* 32px on mobile */
+  }
+
+  #services h3 {
+    margin-bottom: var(--space-sm);  /* 16px on mobile */
+    font-size: clamp(1.25rem, 5vw, 1.333rem);  /* Slightly smaller on mobile */
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    gap: var(--space-md);
   }
 
   .footer-grid > div:nth-child(2),
@@ -803,9 +1312,18 @@ footer a[href="#contact"]:hover {
     margin-left: 0; /* Reset margins on mobile */
   }
 
+  /* Tighter list spacing on mobile */
+  footer ul li {
+    padding: 0.25rem 0;
+  }
+
+  footer h4 {
+    margin-bottom: var(--space-xs);
+  }
+
   /* Ensure footer logo matches scrolled nav logo size on mobile */
-  footer #company-logo strong {
-    font-size: 1.25rem;
+  footer #company-logo img {
+    height: 61px;
   }
 
   .footer-bottom {
@@ -859,8 +1377,8 @@ footer a[href="#contact"]:hover {
   }
 
   /* Maintain logo size consistency on small screens */
-  footer #company-logo strong {
-    font-size: 1.25rem;
+  footer #company-logo img {
+    height: 61px;
   }
 
   p {
@@ -870,10 +1388,26 @@ footer a[href="#contact"]:hover {
   #hero p:first-of-type {
     font-size: 1.125rem;
   }
+
+  /* Better button sizing on very narrow screens */
+  nav .nav-links a[href="#contact"] {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.9375rem;
+    width: calc(100% - var(--space-sm) * 2);
+    margin: var(--space-sm);
+  }
+
+  #contact a,
+  .cta-button {
+    padding: 0.875rem 2rem;
+    font-size: 0.9375rem;
+    min-width: 200px;
+  }
 }
 
-/* Reduced motion support */
+/* Reduced motion support - Respecting user preferences */
 @media (prefers-reduced-motion: reduce) {
+  /* Disable all animations and transitions */
   *,
   *::before,
   *::after {
@@ -883,8 +1417,52 @@ footer a[href="#contact"]:hover {
     scroll-behavior: auto !important;
   }
 
+  /* Keep elements visible immediately */
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Disable background animations */
+  body {
+    animation: none !important;
+  }
+
+  #hero {
+    animation: none !important;
+  }
+
+  #hero h1,
+  #hero p,
+  #hero p.small,
+  #hero p.small a {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+
+  /* Slow down carousel only (still functional) */
   .carousel-track {
     animation: scroll 60s linear infinite;
+  }
+
+  .carousel-item {
+    animation: none !important;
+  }
+
+  /* Disable grid breathing */
+  .grid > div {
+    animation: none !important;
+  }
+
+  /* Disable CTA pulse */
+  #contact a,
+  .cta-button {
+    animation: none !important;
+  }
+
+  /* Keep hover effects (they're user-initiated) */
+  a:hover::before {
+    transition-duration: 0.15s !important;
   }
 }
 
