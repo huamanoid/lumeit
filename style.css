@@ -377,7 +377,7 @@ nav strong {
 }
 
 #company-logo img {
-  height: 76px;  /* Increased by 90% from 40px */
+  height: 68.4px;  /* Decreased by 10% from 76px */
   width: auto;
   display: block;
   transition: height var(--timing-moderate) var(--ease-out-cubic),
@@ -405,7 +405,7 @@ nav strong {
 }
 
 nav.scrolled #company-logo img {
-  height: 61px; /* 20% reduction from 76px */
+  height: 54.9px; /* Decreased by 10% from 61px */
 }
 
 nav .nav-links {
@@ -728,7 +728,7 @@ section + section {
   font-size: 0.875rem;
   font-family: var(--font-body);
   font-weight: 600;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--color-light);
   margin-bottom: var(--space-lg);
@@ -780,7 +780,7 @@ section + section {
   display: flex;
   align-items: center;
   gap: 4rem;
-  animation: scroll 35s var(--ease-in-out-smooth) infinite;
+  animation: scroll 35s linear infinite;
   will-change: transform;
 }
 
@@ -817,15 +817,7 @@ section + section {
   min-width: 180px;
 }
 
-/* Individual floating animations with unique phases */
-.carousel-item:nth-child(1), .carousel-item:nth-child(9) { animation: float-1 4s ease-in-out infinite; }
-.carousel-item:nth-child(2), .carousel-item:nth-child(10) { animation: float-2 5s ease-in-out infinite 0.5s; }
-.carousel-item:nth-child(3), .carousel-item:nth-child(11) { animation: float-3 6s ease-in-out infinite 1s; }
-.carousel-item:nth-child(4), .carousel-item:nth-child(12) { animation: float-4 5.5s ease-in-out infinite 1.5s; }
-.carousel-item:nth-child(5), .carousel-item:nth-child(13) { animation: float-1 4.5s ease-in-out infinite 2s; }
-.carousel-item:nth-child(6), .carousel-item:nth-child(14) { animation: float-2 6.5s ease-in-out infinite 2.5s; }
-.carousel-item:nth-child(7), .carousel-item:nth-child(15) { animation: float-3 5s ease-in-out infinite 3s; }
-.carousel-item:nth-child(8), .carousel-item:nth-child(16) { animation: float-4 7s ease-in-out infinite 3.5s; }
+/* Individual floating animations disabled - horizontal movement only */
 
 .carousel-item img {
   max-width: 180px;
@@ -840,9 +832,6 @@ section + section {
               transform var(--timing-moderate) var(--ease-out-cubic);
 }
 
-.carousel-item:hover {
-  animation-play-state: paused;
-}
 
 .carousel-item:hover img {
   filter: grayscale(90%) brightness(0.5) contrast(1.2);
@@ -871,8 +860,20 @@ section + section {
   margin-bottom: var(--space-lg);
 }
 
+.cta-group {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Match button heights in contact section */
+#contact .cta-button {
+  padding: clamp(0.625rem, 1.5vw, 0.875rem) clamp(1.5rem, 4vw, 2.5rem);
+}
+
 /* CTA Button - Enhanced Ripple Effect with adaptive sizing */
-#contact a,
 .cta-button {
   background: linear-gradient(135deg, #008575 0%, #006d5f 100%);
   color: #ffffff;
@@ -909,12 +910,10 @@ section + section {
   }
 }
 
-#contact a,
 .cta-button {
   animation: cta-pulse 3s var(--ease-in-out-smooth) infinite;
 }
 
-#contact a:hover,
 .cta-button:hover {
   background: linear-gradient(135deg, #006d5f 0%, #005a4f 100%);
   transform: scale(1.04);
@@ -923,7 +922,6 @@ section + section {
   animation-play-state: paused;
 }
 
-#contact a:active,
 .cta-button:active {
   transform: scale(0.97);
   transition-duration: var(--timing-ultra-fast);
@@ -931,7 +929,6 @@ section + section {
 }
 
 /* Concentric ring effect on click */
-#contact a::after,
 .cta-button::after {
   content: '';
   position: absolute;
@@ -946,7 +943,6 @@ section + section {
   pointer-events: none;
 }
 
-#contact a:active::after,
 .cta-button:active::after {
   animation: ring-expand var(--timing-moderate) var(--ease-out-cubic);
 }
@@ -964,6 +960,44 @@ section + section {
   }
 }
 
+/* CTA Outline Button - Ghost/Negative Style */
+.cta-button-outline {
+  background: transparent;
+  color: #008575;
+  border: 1px solid rgba(0, 133, 117, 0.4);
+  border-radius: 50px;
+  padding: clamp(0.625rem, 1.5vw, 0.875rem) clamp(1.25rem, 3vw, 1.75rem);
+  transition: background var(--timing-quick) var(--ease-out-cubic),
+              color var(--timing-quick) var(--ease-out-cubic),
+              border-color var(--timing-quick) var(--ease-out-cubic),
+              transform var(--timing-quick) var(--ease-out-cubic);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1;
+  font-family: var(--font-body);
+  font-size: clamp(0.8125rem, 1.5vw, 0.875rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  position: relative;
+  min-height: 44px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.cta-button-outline:hover {
+  background: rgba(0, 133, 117, 0.05);
+  color: #006d5f;
+  border-color: #008575;
+  transform: translateY(-1px);
+}
+
+.cta-button-outline:active {
+  transform: translateY(0);
+  transition-duration: var(--timing-ultra-fast);
+}
+
 /* Footer */
 footer {
   background: var(--color-alabaster);
@@ -978,9 +1012,9 @@ footer .container {
   padding: 0 var(--space-md);
 }
 
-/* Footer logo - increased by 90% */
+/* Footer logo */
 footer #company-logo img {
-  height: 61px;
+  height: 54.9px;  /* Decreased by 10% from 61px */
   width: auto;
 }
 
@@ -1068,6 +1102,72 @@ footer a[href="#contact"] {
   margin: 0;
 }
 
+.social-links {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+  color: var(--color-tertiary);
+  transition: background-color var(--timing-quick) var(--ease-out-cubic),
+              color var(--timing-quick) var(--ease-out-cubic),
+              border-color var(--timing-quick) var(--ease-out-cubic),
+              transform var(--timing-medium) var(--ease-out-cubic);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-links a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width var(--timing-medium) var(--ease-out-cubic),
+              height var(--timing-medium) var(--ease-out-cubic);
+  pointer-events: none;
+}
+
+.social-links a:hover {
+  background-color: var(--color-primary);
+  color: var(--color-pure-white);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.social-links a:hover::before {
+  width: 60px;
+  height: 60px;
+}
+
+.social-links a:active {
+  transform: translateY(0) scale(0.95);
+  transition-duration: var(--timing-ultra-fast);
+}
+
+.social-links svg {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--timing-quick) var(--ease-out-cubic);
+}
+
+.social-links a:hover svg {
+  transform: scale(1.1);
+}
+
 /* Utilities */
 ::selection {
   background-color: var(--color-primary);
@@ -1122,7 +1222,7 @@ footer a[href="#contact"] {
 
   /* Prevent logo from shrinking on mobile */
   nav.scrolled #company-logo img {
-    height: 76px; /* Keep original size */
+    height: 68.4px; /* Keep original size, decreased by 10% */
   }
 
   /* Prevent links from shrinking on mobile */
@@ -1323,13 +1423,17 @@ footer a[href="#contact"] {
 
   /* Ensure footer logo matches scrolled nav logo size on mobile */
   footer #company-logo img {
-    height: 61px;
+    height: 54.9px;  /* Decreased by 10% from 61px */
   }
 
   .footer-bottom {
     flex-direction: column;
     gap: var(--space-sm);
     text-align: center;
+  }
+
+  .social-links {
+    gap: var(--space-sm);
   }
 
   /* Carousel responsive */
@@ -1378,7 +1482,7 @@ footer a[href="#contact"] {
 
   /* Maintain logo size consistency on small screens */
   footer #company-logo img {
-    height: 61px;
+    height: 54.9px;  /* Decreased by 10% from 61px */
   }
 
   p {
@@ -1463,6 +1567,15 @@ footer a[href="#contact"] {
   /* Keep hover effects (they're user-initiated) */
   a:hover::before {
     transition-duration: 0.15s !important;
+  }
+
+  /* Simplify social icon animations */
+  .social-links a {
+    transition-duration: 0.15s !important;
+  }
+
+  .social-links a:hover {
+    transform: none !important;
   }
 }
 
