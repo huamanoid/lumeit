@@ -1331,7 +1331,7 @@ footer a[href="#contact"] {
   }
 
   /* Contact button on mobile - full width with adaptive padding */
-  nav .nav-links a[href="#contact"] {
+  nav .nav-links .cta-button {
     background: linear-gradient(135deg, #008575 0%, #006d5f 100%);
     color: #ffffff;
     border-radius: 50px;
@@ -1349,13 +1349,13 @@ footer a[href="#contact"] {
     position: relative;
   }
 
-  nav .nav-links a[href="#contact"]:hover,
-  nav .nav-links a[href="#contact"]:active {
+  nav .nav-links .cta-button:hover,
+  nav .nav-links .cta-button:active {
     background: linear-gradient(135deg, #006d5f 0%, #005a4f 100%);
     color: #ffffff;
   }
 
-  nav .nav-links a[href="#contact"]::after {
+  nav .nav-links .cta-button::after {
     display: none;
   }
 
@@ -1493,8 +1493,20 @@ footer a[href="#contact"] {
     font-size: 1.125rem;
   }
 
+  /* Add more whitespace between hero CTAs on small screens */
+  #hero p.small {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  #hero p.small span {
+    margin: 0 !important;
+  }
+
   /* Better button sizing on very narrow screens */
-  nav .nav-links a[href="#contact"] {
+  nav .nav-links .cta-button {
     padding: 0.875rem 1.75rem;
     font-size: 0.9375rem;
     width: calc(100% - var(--space-sm) * 2);
